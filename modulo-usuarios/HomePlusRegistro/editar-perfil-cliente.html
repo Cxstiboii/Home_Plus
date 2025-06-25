@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Editar Perfil - Cliente | Home+</title>
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --black: #1F1F1F;
+      --beige: #CCB58E;
+      --gray: #C2C2C2;
+      --light-beige: #F5F0E6;
+      --dark-beige: #B8A57B;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--light-beige);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: var(--white);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: var(--black);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .role-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background-color: var(--beige);
+      color: var(--black);
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      color: var(--black);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 4px;
+      border: 1px solid var(--gray);
+      border-radius: 8px;
+      background-color: var(--light-beige);
+      color: var(--black);
+    }
+
+    .button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 12px;
+      background-color: var(--dark-beige);
+      border: none;
+      border-radius: 10px;
+      color: var(--white);
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background-color: var(--beige);
+      color: var(--black);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Editar Perfil</h2>
+    <span class="role-badge">Cliente</span>
+
+    <form onsubmit="redirigirCliente(event)">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" placeholder="Ej: Laura Martínez" required>
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" placeholder="correo@ejemplo.com" required>
+
+      <label for="telefono">Teléfono</label>
+      <input type="tel" id="telefono" placeholder="+57 300 000 0000" required>
+
+      <label for="direccion">Dirección</label>
+      <textarea id="direccion" rows="2" placeholder="Carrera 8 # 45 - 20, Bogotá..." required></textarea>
+
+      <button type="submit" class="button">Guardar Cambios</button>
+    </form>
+  </div>
+
+  <script>
+    function redirigirCliente(e) {
+      e.preventDefault();
+      // Aquí también podrías guardar datos si lo necesitas
+      window.location.href = "/confirmacion y agendamiento/home/html/trabajosaceptados.html";
+    }
+  </script>
+</body>
+</html>
