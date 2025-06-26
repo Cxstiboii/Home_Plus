@@ -3,7 +3,6 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
-  const role = document.getElementById("role").value;
   const error = document.getElementById("error");
 
   if (!email || !password || !role) {
