@@ -18,7 +18,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
   const usuarioValido = usuarios.find(user =>
     user.email === email &&
     user.password === password &&
-    user.rol === role
+   
   );
 
   if (usuarioValido) {
