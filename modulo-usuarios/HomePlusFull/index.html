@@ -3,37 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Inicio de Sesión | Home+</title>
+  <title>Inicio de Sesion | Home+</title>
   <link rel="stylesheet" href="estilos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" href="homelogo.jpg">
-</head>
-<body>
-  <style> 
-    body{
-      background-image: url(int1.jpeg);
+  <style>
+    body {
+      background-image: url("int1.jpeg");
       background-repeat: no-repeat;
-      background-size: cover; 
+      background-size: cover;
+      background-position: center;
     }
   </style>
+</head>
+<body>
   <div class="login-wrapper">
     <form class="login-box" id="loginForm">
       <h2>Bienvenido a <span>Home+</span></h2>
-      <style>
-        body{
-            background-image:url("int1.jpeg");
-            background-repeat: no-repeat;
-            background-size: cover;
-         }
-      </style>
-<div class="select-group">
-  <i class="fas fa-user-tag"></i>
-  <select id="role" required>
-    <option value="" disabled selected>Selecciona tu rol</option>
-    <option value="cliente">Cliente</option>
-    <option value="profesional">Profesional</option>
-  </select>
-</div>
 
       <div class="input-group">
         <i class="fas fa-envelope"></i>
@@ -45,18 +31,15 @@
         <input type="password" id="password" placeholder="Contrasena" required>
       </div>
 
-      <a href="/Servicios Publicados/serviciospublicados.html">
-        <button type="submit">Iniciar Sesión</button>
-      </a>
-      
+      <button type="submit">Iniciar Sesión</button>
 
       <p id="error" class="error-msg"></p>
-      <p class="extra">¿No tienes cuenta? <a href="indexRegistro.html">Registrate
-      </a></p>
-      <p class="extra">¿Olivdaste la contrasena? <a href="#">Recuperala</a></p>
+      <p class="extra">¿No tienes cuenta? <a href="indexRegistro.html">Registrate</a></p>
+      <p class="extra">¿Olvidaste la contraseña? <a href="#">Recuperala</a></p>
     </form>
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
