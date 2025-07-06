@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Establecer fecha mínima como hoy
     const today = new Date().toISOString().split('T')[0];
-    document.getElementById('serviceDate').min = today;
+    document.getElementById('serviceDate').setAttribute('min', today);
     
-    // Manejar envío del formulario
     document.getElementById('finalizeContract').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -13,16 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const paymentMethod = formData.get('paymentMethod');
         const negotiationNotes = formData.get('negotiationNotes');
         
-        // Simular envío de datos
         setTimeout(() => {
             alert(`¡Contratación confirmada con María González!\n\nFecha: ${serviceDate}\nHora: ${serviceTime}\nMétodo de pago: ${getPaymentMethodName(paymentMethod)}`);
-            
-            // Aquí iría la redirección o actualización de UI
-            window.location.href = 'confirmacion.html'; // Ejemplo
+            window.location.href = 'confirmacion.html';
         }, 1000);
     });
     
-    // Función helper para nombres de métodos de pago
     function getPaymentMethodName(value) {
         const methods = {
             'creditCard': 'Tarjeta de crédito',
@@ -32,8 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return methods[value] || value;
     }
     
-    // Simular funcionalidad del chat
-    document.querySelector('.btn-send').addEventListener('click', function() {
+    document.querySelector('.btn-send').addEventListener('click', sendMessage);
+    
+    document.querySelector('.chat-input input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
         const input = document.querySelector('.chat-input input');
         const message = input.value.trim();
         
@@ -52,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
             input.value = '';
             chatContainer.scrollTop = chatContainer.scrollHeight;
             
-            // Simular respuesta automática
             setTimeout(() => {
                 const autoReply = document.createElement('div');
                 autoReply.className = 'message professional';
@@ -66,12 +66,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }, 1500);
         }
-    });
-    
-    // Permitir enviar mensaje con Enter
-    document.querySelector('.chat-input input').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            document.querySelector('.btn-send').click();
-        }
-    });
+    }
 });
