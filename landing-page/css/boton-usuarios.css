@@ -55,7 +55,6 @@
    font-weight: 600;
    font-size: 14px;
    color: var(--black);
-   user-select: none;
 }
 
 /* Texto blanco cuando el botón está activo (tiene el fondo beige) */
