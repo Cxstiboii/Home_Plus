@@ -13,9 +13,9 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Función para mostrar detalle del servicio (tu código actualizado)
+// Función para mostrar detalle del servicio
 function mostrarDetalle(btn) {
-  const card = btn.closest('.border');
+  const card = btn.closest('.servicio-card');
   document.getElementById('detalle-tipo').textContent = card.querySelector('h3').textContent;
   document.getElementById('detalle-direccion').textContent = card.querySelectorAll('p')[0].textContent.replace('Dirección: ', '');
   document.getElementById('detalle-fecha').textContent = card.querySelectorAll('p')[1].textContent.replace('Fecha: ', '');
@@ -47,7 +47,22 @@ document.getElementById('detalleModal').addEventListener('click', function(event
   }
 });
 
-// Menú móvil toggle
-document.getElementById('menu-btn').addEventListener('click', () => {
-  document.getElementById('mobile-menu').classList.toggle('hidden');
+// Función para redirigir a negociación
+function redirigirANegociacion() {
+  window.location.href = "/modulo-solicitudes-negociacion/index.html";
+}
+
+// Función para redirigir a confirmación de agendamiento
+function redirigirAConfirmacion() {
+  window.location.href = "/modulo-confirmacion-agendamiento/profesional.html";
+}
+
+// Función para cerrar sesión
+function cerrarSesion() {
+  window.location.href = "/modulo-usuarios/HomePlusFull/index.html";
+}
+
+// Asignar evento a todos los botones de salir
+document.querySelectorAll('.btn-salir').forEach(btn => {
+  btn.addEventListener('click', cerrarSesion);
 });

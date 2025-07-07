@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/modulo-confirmacion-agendamiento/css/confirmacion-agendamiento.css">
+    <link rel="stylesheet" href="/modulo-confirmacion-agendamiento/css/profesional.css">
     <link rel="icon" href="/assets/Favicon/favicon-96x96.png">
     <title>Sistema de Gestión de Servicios</title>
 </head>
-<body>
+<body></body>
     <div class="container">
         <!-- Sidebar Navigation -->
         <div class="sidebar">
             <div class="logo">
-                    <img src="/assets/img/Logo/Logo Home + Transparente.png" alt="Logo Home+" style="height: 24px;">
+                <img src="/assets/img/Logo/Logo Home + Transparente.png" alt="Logo Home+" style="height: 24px;">
             </div>
 
             <nav>
@@ -34,6 +34,12 @@
                 <a href="#" class="nav-item" data-module="agendamiento">
                     <span class="icon">📅</span>
                     <span>Ver Agendamiento</span>
+                </a>
+
+                <!-- Botón de salir -->
+                <a href="#" class="nav-item nav-logout" onclick="confirmarSalida(event)">
+                    <span class="icon">🚪</span>
+                    <span>Salir</span>
                 </a>
             </nav>
         </div>
@@ -240,9 +246,18 @@
                         </div>
                     </div>
                 </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación para salir -->
+    <div class="modal-overlay" id="modalSalir">
+        <div class="modal-content">
+            <h3 class="modal-title">¿Confirmar salida?</h3>
+            <p class="modal-text">¿Estás seguro de que deseas cerrar sesión? Se perderán los datos no guardados.</p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-cancel" onclick="cerrarModal()">Cancelar</button>
+                <button class="modal-btn modal-btn-confirm" onclick="salirSistema()">Salir</button>
             </div>
         </div>
     </div>
@@ -252,6 +267,6 @@
         <span id="notificationMessage">Operación realizada con éxito</span>
     </div>
 
-    <script src="/modulo-confirmacion-agendamiento/js/script.js"></script>
+    <script src="/modulo-confirmacion-agendamiento/js/profesional.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
-// Navegación entre módulos
-document.addEventListener('DOMContentLoaded', function() {
-    const navItems = document.querySelectorAll('.nav-item');
+  // Navegación entre módulos
+  document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.nav-item:not(.nav-logout)');
     const modules = document.querySelectorAll('.module');
     
     navItems.forEach(item => {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Funciones de interacción
 function verDetalles(cliente) {
     // Cambiar a módulo de detalles
-    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+    document.querySelectorAll('.nav-item:not(.nav-logout)').forEach(nav => nav.classList.remove('active'));
     document.querySelectorAll('.module').forEach(module => module.classList.remove('active'));
     
     document.querySelector('[data-module="detalles"]').classList.add('active');
@@ -67,7 +67,7 @@ function confirmarAgendamiento() {
     
     // Cambiar a módulo de agendamiento
     setTimeout(() => {
-        document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+        document.querySelectorAll('.nav-item:not(.nav-logout)').forEach(nav => nav.classList.remove('active'));
         document.querySelectorAll('.module').forEach(module => module.classList.remove('active'));
         
         document.querySelector('[data-module="agendamiento"]').classList.add('active');
@@ -99,9 +99,34 @@ function mostrarNotificacion(mensaje) {
     }, 3000);
 }
 
+// Funciones para el botón de salir
+function confirmarSalida(event) {
+    event.preventDefault();
+    document.getElementById('modalSalir').style.display = 'flex';
+}
+
+function cerrarModal() {
+    document.getElementById('modalSalir').style.display = 'none';
+}
+
+function salirSistema() {
+    mostrarNotificacion('Cerrando sesión...');
+    setTimeout(() => {
+        // Aquí rediriges a la página de login o inicio
+        window.location.href = '/modulo-usuarios/HomePlusFull/index.html'; 
+    }, 2000);
+}
+
 // Establecer fecha mínima como hoy
 document.addEventListener('DOMContentLoaded', function() {
     const fechaInput = document.getElementById('fecha-servicio');
     const today = new Date().toISOString().split('T')[0];
     fechaInput.setAttribute('min', today);
+});
+
+// Cerrar modal al hacer clic fuera de él
+document.getElementById('modalSalir').addEventListener('click', function(e) {
+    if (e.target === this) {
+        cerrarModal();
+    }
 });
